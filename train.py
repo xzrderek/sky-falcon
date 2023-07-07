@@ -81,6 +81,7 @@ training_arguments = TrainingArguments(
 
 max_seq_length = 512
 
+
 trainer = SFTTrainer(
     model=model,
     train_dataset=dataset,
@@ -96,3 +97,5 @@ for name, module in trainer.model.named_modules():
         module = module.to(torch.float32)
 
 trainer.train()
+
+trainer.save_model("./my_model")
