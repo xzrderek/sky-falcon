@@ -4,9 +4,6 @@ from trl import SFTTrainer
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, AutoTokenizer, TrainingArguments
 
-with open('test.txt', 'w') as file:
-    file.write('test')
-
 # Set dataset, here is Guanaco
 
 dataset_name = "timdettmers/openassistant-guanaco"
@@ -100,5 +97,3 @@ for name, module in trainer.model.named_modules():
         module = module.to(torch.float32)
 
 trainer.train()
-
-trainer.save_model("./my_model")
