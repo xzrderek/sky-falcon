@@ -51,7 +51,7 @@ peft_config = LoraConfig(
 
 # Load the trainer
 
-output_dir = "../results"
+output_dir = "./results"
 per_device_train_batch_size = 4
 gradient_accumulation_steps = 4
 optim = "paged_adamw_32bit"
