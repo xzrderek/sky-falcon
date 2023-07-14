@@ -149,8 +149,10 @@ def create_and_prepare_model(args):
             print("Your GPU supports bfloat16, you can accelerate training with the argument --bf16")
             print("=" * 80)
 
+    device_map = "auto"
+
     model = AutoModelForCausalLM.from_pretrained(
-        args.model_name, quantization_config=bnb_config, trust_remote_code=True
+        args.model_name, quantization_config=bnb_config, device_map=device_map, trust_remote_code=True
     )
 
     peft_config = LoraConfig(
